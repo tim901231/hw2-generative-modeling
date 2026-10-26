@@ -33,7 +33,9 @@ class FlowModel(nn.Module):
         # First, prepare the time step t,
         # then pass x_t and the prepared t to the model.
         ##################################################################
-        pass
+        timesteps = self._prepare_t(t)
+        out = self.model(x_t, timesteps)
+        return out
         ##################################################################
         #                          END OF YOUR CODE                      #
         ##################################################################
@@ -46,7 +48,8 @@ class FlowModel(nn.Module):
         ##################################################################
         # TODO 4.1: Implement one Euler step of the ODE solver
         ##################################################################
-        pass
+        v = self.forward(x, t)
+        return x + v * dt
         ##################################################################
         #                          END OF YOUR CODE                      #
         ##################################################################
@@ -73,8 +76,8 @@ class FlowModel(nn.Module):
         ##################################################################
         # TODO 4.1: Implement time grid and time step size,
         ##################################################################
-        ts = None
-        dt = None
+        ts = self._time_grid(steps)
+        dt = 1.0 / (steps - 1)
         ##################################################################
         #                          END OF YOUR CODE                      #
         ##################################################################
@@ -108,8 +111,8 @@ class FlowModel(nn.Module):
         # TODO 4.1: Implement time grid and time step size,
         # similar to sample() function above.
         ##################################################################
-        ts = None
-        dt = None
+        ts = self._time_grid(steps)
+        dt = 1.0 / (steps - 1)
         ##################################################################
         #                          END OF YOUR CODE                      #
         ##################################################################

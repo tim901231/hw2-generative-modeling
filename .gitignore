@@ -15,3 +15,11 @@ diffusion_solutions/epoch_199.pth
 
 flow_matching/flow_euler
 flow_matching/fm_final.pth
+
+vae/data
+diffusion/data_ddim/
+diffusion/data_ddpm/
+diffusion/epoch_199.pth
+
+*.gz
+report/

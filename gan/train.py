@@ -158,7 +158,7 @@ def train_model(
                         # TODO 1.2: Generate samples using the generator.
                         # Make sure they lie in the range [0, 1]!
                         ##################################################################
-                        generated_samples = (gen(batch_size) + 1.0 ) / 2
+                        generated_samples = (gen(100) + 1.0 ) / 2
                         ##################################################################
                         #                          END OF YOUR CODE                      #
                         ##################################################################
